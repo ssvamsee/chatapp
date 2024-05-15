@@ -9,43 +9,45 @@ import AuthLayouts from "../layout";
 import Forgotpassword from "../pages/Forgotpassword";
 import Auth from "../components/Auth";
 
-const router = createBrowserRouter([
-    {
-        path: "/chatapp/",
-        element: <App />,
-        children: [
-            {
-                path: "register",
-                element: <AuthLayouts><RegisterPage /></AuthLayouts>
-            },
-            {
-                path: 'email',
-                element: <AuthLayouts><CheckEmailPage /></AuthLayouts>
-            },
-            {
-                path: 'password',
-                element: <AuthLayouts><CheckPasswordPage /></AuthLayouts>
-            },
-            {
-                path: 'forgot-password',
-                element: <AuthLayouts><Forgotpassword /></AuthLayouts>
-            },
-            {
-                path: "",
-                element:
-                    <Auth>
-                        <Home />
-                    </Auth>,
-                children: [
-                    {
-                        path: ':userId',
-                        element: <MessagePage />
-                    }
-                ]
-            }
-        ]
-    }
-]  
-)
+const router = createBrowserRouter({
+    basename: '/chatapp',
+    routes: [
+        {
+            path: "/",
+            element: <App />,
+            children: [
+                {
+                    path: "register",
+                    element: <AuthLayouts><RegisterPage /></AuthLayouts>
+                },
+                {
+                    path: 'email',
+                    element: <AuthLayouts><CheckEmailPage /></AuthLayouts>
+                },
+                {
+                    path: 'password',
+                    element: <AuthLayouts><CheckPasswordPage /></AuthLayouts>
+                },
+                {
+                    path: 'forgot-password',
+                    element: <AuthLayouts><Forgotpassword /></AuthLayouts>
+                },
+                {
+                    path: "",
+                    element:
+                        <Auth>
+                            <Home />
+                        </Auth>,
+                    children: [
+                        {
+                            path: ':userId',
+                            element: <MessagePage />
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+});
 
 export default router
