@@ -5,7 +5,7 @@ const initialState = {
   name : "",
   email : "",
   profile_pic : "",
-  token : "",
+  token : localStorage?.getItem("token"),
   onlineUser : [],
   socketConnection : null
 }
