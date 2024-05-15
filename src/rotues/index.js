@@ -45,6 +45,10 @@ const router = createBrowserRouter([
             }
         ]
     }
-])
+],{
+    basename:"chatapp",
+}        
+
+)
 
 export default router

@@ -10,7 +10,7 @@ export default function Auth({children}) {
 
     useEffect(()=>{
       if(!token){
-        navigation('/email',{replace:true})
+        navigation('/email')
       }
     },[])
 
