@@ -3,7 +3,6 @@ const BaseUrl = `${process.env.REACT_APP_BACKEND_URL}/api`
 
 const postApiOptions = {
     "Content-Type":"application/json",
-    "withCredentials" : true
 }
 
 export async function emailVerify(body){

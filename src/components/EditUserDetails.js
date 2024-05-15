@@ -66,7 +66,7 @@ const EditUserDetails = ({onClose,user}) => {
                 method : 'post',
                 url : URL,
                 data : data,
-                withCredentials : true
+                // withCredentials : true
             })
 
             console.log('response',response)
