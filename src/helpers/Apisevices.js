@@ -3,7 +3,7 @@ const BaseUrl = `${process.env.REACT_APP_BACKEND_URL}/api`
 
 const postApiOptions = {
     "Content-Type":"application/json",
-    "origin":'https://ssvamsee.github.io/',
+    "Origin":'https://ssvamsee.github.io/',
     "withCredentials" : true
 }
 
