@@ -5,6 +5,7 @@ import uploadFile from '../helpers/uploadFile';
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import { PiUserCircle } from "react-icons/pi";
+import { emailVerify } from '../helpers/Apisevices';
 
 const CheckEmailPage = () => {
   const [data,setData] = useState({
@@ -27,10 +28,8 @@ const CheckEmailPage = () => {
     e.preventDefault()
     e.stopPropagation()
 
-    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/email`
-
     try {
-        const response = await axios.post(URL,data)
+        const response = await emailVerify(data)
 
         toast.success(response.data.message)
 

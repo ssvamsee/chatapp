@@ -8,6 +8,7 @@ import { PiUserCircle } from "react-icons/pi";
 import Avatar from '../components/Avatar';
 import { useDispatch } from 'react-redux';
 import { setToken, setUser } from '../redux/userSlice';
+import { CheckPassword } from '../helpers/Apisevices';
 
 const CheckPasswordPage = () => {
   const [data,setData] = useState({
@@ -42,16 +43,19 @@ const CheckPasswordPage = () => {
     const URL = `${process.env.REACT_APP_BACKEND_URL}/api/password`
 
     try {
-        const response = await axios({
-          method :'post',
-          url : URL,
-          data : {
-            userId : location?.state?._id,
-            password : data.password
-          },
-          withCredentials : true
+      // const response = await axios({
+      //   method :'post',
+      //   url : URL,
+      //   data : {
+      //     userId : location?.state?._id,
+      //     password : data.password
+      //   },
+      //   withCredentials : true
+      // })
+      const response = await CheckPassword({
+          userId : location?.state?._id,
+          password : data.password
         })
-
         toast.success(response.data.message)
 
         if(response.data.success){
