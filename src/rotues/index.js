@@ -11,7 +11,7 @@ import Auth from "../components/Auth";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/chatapp",
         element: <App />,
         children: [
             {
